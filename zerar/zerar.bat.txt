@@ -1,0 +1,17 @@
+@ECHO OFF
+SET ARQUIVOS=*.c *.cpp *.h *.zip *.pdf *.7z *.txt *.jpg *.jpeg *.png *.mp4 *.mpg *.mpeg *.xlsx *.xls *.doc *.docx *.odt *.ods *.odp *.ppt *.pptx *.por *.o
+ECHO Excluindo arquivos...
+PAUSE
+RD /S /Q Documents
+MD Documents
+RD /S /Q Pictures
+MD Pictures
+RD /S /Q Downloads
+MD Downloads
+RD /S /Q Music
+MD Music
+RD /S /Q Videos
+MD Videos
+DEL /S /Q %ARQUIVOS%
+DEL /S /Q \$Recycle.Bin\*
+PAUSE
