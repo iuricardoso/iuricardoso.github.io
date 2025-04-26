@@ -1,5 +1,5 @@
 # Pacman Project
-Autors:
+Authors:
 - Bruna Luisa Poffo Nobre,
 - Fernando Rodrigues Santos,
 - Iuri Sônego Cardoso,
