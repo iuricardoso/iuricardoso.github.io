@@ -137,7 +137,6 @@ class PriorityQueue:
 # Search Algorithms: Best-First
 # ------------------------------------------------------------------------------
 
-# Iuri: modifiquei esta função, incluindo a passagem por parâmetro (opcional) do dicionário processingCostResult.
 def best_first_search(problem, f, processingCostResult=None):
     "Busca nós com o valor mínimo de f(nó) primeiro"
 
@@ -234,7 +233,6 @@ def is_cycle(node, k=30):
 # Other Search Algorithms
 # ------------------------------------------------------------------------------
 
-# Iuri: modifiquei esta função, incluindo a passagem por parâmetro (opcional) do dicionário processingCostResult.
 def breadth_first_search(problem, processingCostResult=None):
     "Busca primeiro os nós mais superficiais na árvore de busca"    
 
@@ -419,7 +417,7 @@ class PacmanProblem(Problem):
         if state[py][px] == self.PACMAN_AND_FOOD:
             return 0
 
-        # Faz a "busca losângulo" por comida em volta do PACMAN (considerando distância de Manhattan).
+        # Faz a "Procura Quadrada" por comida em volta do PACMAN (considerando distância de Manhattan).
         for dist in range(1, qlines + qcols):
             for i in range(0, dist):
                 # busca da esquerda para cima
@@ -482,7 +480,7 @@ class PacmanProblem(Problem):
             manhattanDistance((px,py),(qcols-1, qlines-1)),
         ]
 
-        # Faz a "busca losângulo" por comida em volta do PACMAN (considerando distância de Manhattan).
+        # Faz a "Procura Quadrada" por comida em volta do PACMAN (considerando distância de Manhattan).
         for dist in range(max(cornersDistance),0,-1):
             for i in range(0, dist+1):
                 # busca da esquerda para baixo
@@ -553,10 +551,10 @@ class PacmanProblem(Problem):
                         # adiciona a distância no setor esquerdo
                         left = dist    
 
-                # Se já encontrou os últimos de todos os setores, finaliza este losângulo
+                # Se já encontrou os últimos de todos os setores, finaliza este quadrado
                 if up != -1 and right != -1 and down != -1 and left != -1:
                     break
-            # Se a busca no losângulo foi até o fim e ainda precisa continuar a busca, segue para a próxima distância. 
+            # Se a busca no quadrado foi até o fim e ainda precisa continuar a busca, segue para a próxima distância. 
             else:
                 continue
 
@@ -648,7 +646,6 @@ class Map:
             string += line + "\n"
         return string
     
-    # Iuri: Acrescentado método para retornar a descrição.
     def getDescription(self):
         return self.__desc
 
@@ -793,7 +790,7 @@ def statelist_to_string(states, cols=80):
 
 
 """ Testes """
-""" Iuri: algoritmo h1 não funcionou conforme esperado. Durante a priorização dos nós, buscando sempre
+""" algoritmo h1 não funcionou conforme esperado. Durante a priorização dos nós, buscando sempre
     a comida mais próxima, ao limpar o primeiro setor (esquerda), os próximos nós ficam com custo estimado
     (h) grandes, priorizando outros nós que antes haviam sido desprezados (prioridade baixa). Ao final, o
     algoritmo h1 acaba priorizando o setor com lado oposto mais próximo, selecionado o mesmo caminho de h2.
@@ -819,33 +816,31 @@ print("States: ", string)
 print("=" * 80) """
 
 
-maps.append(Map(map5x5))
-maps.append(Map(map7x7))
-maps.append(Map(map10x10))
-maps.append(Map(map15x15))
-maps.append(Map(map20x20))
+#maps.append(Map(map5x5))
+#maps.append(Map(map7x7))
+#maps.append(Map(map10x10))
+#maps.append(Map(map15x15))
+#maps.append(Map(map20x20))
 
-#maps.append(Map(map3X20_tH2, "20x3 assimétrico"))
-#maps.append(Map(map5x20_tH2, "20x5 assimétrico"))
+maps.append(Map(map3X20_tH2, "20x3 assimétrico"))
+maps.append(Map(map5x20_tH2, "20x5 assimétrico"))
 #maps.append(Map(map17x20_tH2, "20x17 assimétrico"))
 #maps.append(Map(map20x20_tH2, "20x20 assimétrico"))
 
 
 ''' Algoritmos e heurísticas '''
 algorithms = [
-    # Iuri: retirado os algoritmos que não usam heurística
-    depth_first_bfs,
-    breadth_first_bfs,
-    breadth_first_search,
+    #depth_first_bfs,
+    #breadth_first_bfs,
+    #breadth_first_search,
     (greedy_bfs, h1),
     (greedy_bfs, h2),
-   (astar_search, h1),
-   (astar_search, h2)
+    (astar_search, h1),
+    (astar_search, h2)
 ]
 
 data = []
 
-# Iuri: inclui este dicionário para apresentar as representações dos callbacks para humanos.
 dicionario = {
     h1 : "H1 - Nearest Food",
     h2 : "H2 - Nearest Opposite Border",
@@ -866,16 +861,10 @@ with open("output.txt", "w") as arquivo:
             print(f"Map: {m.getDescription()}", end=", ")
             if isinstance(a, tuple):
                 print(f"algoritm: {dicionario[a[0]]}, heuristic: {dicionario[a[1]]}")
-                # Iuri: removi o tempo daqui, pois agora a contagem é feita pelo algoritmo e adicionei o dicionário para contar o tempo e os nós visitados.
-                #startTime = time.perf_counter()
                 processingCostResult = {}
                 path = a[0](pac, a[1](pac), processingCostResult)
-                #stopTime = time.perf_counter()
-                #timeAlgoritm = stopTime - startTime
                 actions = path_actions(path)
 
-                # Iuri: adicionei a chamada do dicionário para apresentar a representação para humanos, e o dicionário de custos calculados.
-                # Iuri: chamei o método getDescription() do objeto mapa.
                 item = [
                     f"{m.getDescription()}",
                     dicionario[a[0]],
@@ -885,16 +874,10 @@ with open("output.txt", "w") as arquivo:
                     processingCostResult["visited nodes"]
                 ]
             else:
-                # Iuri: removi o tempo daqui, pois agora a contagem é feita pelo algoritmo e adicionei o dicionário para contar o tempo e os nós visitados.
-                #startTime = time.perf_counter()
                 processingCostResult = {}
                 path = a(pac, processingCostResult)
-                #stopTime = time.perf_counter()
-                #timeAlgoritm = stopTime - startTime
                 actions = path_actions(path)
 
-                # Iuri: adicionei a chamada do dicionário para apresentar a representação para humanos, e o dicionário de custos calculados.
-                # Iuri: chamei o método getDescription() do objeto mapa.
                 item = [
                     f"{m.getDescription()}",
                     dicionario[a],
@@ -909,8 +892,6 @@ with open("output.txt", "w") as arquivo:
             print(string)
             arquivo.write(f"{item}:\n{string}")
 
-# Iuri: objeto dataframe pode ser gerado uma vez tanto para gerar o CSV quanto para imprimir na tela.
-# print(pd.DataFrame(data, columns=["Map", "Algorithm", "Heuristic function", "Steps", "Time", "Visited Nodes"]))
 df = pd.DataFrame(data, columns=["Map", "Algorithm", "Heuristic function", "Steps", "Time", "Visited Nodes"])
 print("=" * 80)
 print("\n", df)
