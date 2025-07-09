@@ -19,103 +19,125 @@ h1 {
 <body>
 <h1>Sintaxe Linguagem C</h1>
 <div class="container">
-<h2>Estrutura Básica:</h2>
-<pre><b>#include &lt;</b>stdio.h<b>&gt;</b>
-<b>int</b> main<b>() {</b>
+    <h2>Estrutura Básica:</h2>
+    <pre><strong>#include &lt;</strong>stdio.h<strong>&gt;</strong>
+<strong>int</strong> main<strong>() {</strong>
 
-	<b>return </b>0<b>;</b>
+	<strong>return </strong>0<strong>;</strong>
 }
 </pre>
-<h2>Estruturas de Decisão:</h2>
-<pre><b>if (</b>condição<b>) {</b>
+    <h2>Estruturas de Decisão:</h2>
+    <pre><strong>if (</strong>condição<strong>) {</strong>
 	comandos1
-<b>}
-else {</b>
+<strong>}
+else {</strong>
 	comandos2
-<b>}</b>
+<strong>}</strong>
 
 
 
-<b>if (</b>condição1<b>) {</b>
+<strong>if (</strong>condição1<strong>) {</strong>
 	comandos1
-<b>}
+<strong>}
 else {
-	if (</b>condição2<b>) {</b>
+	if (</strong>condição2<strong>) {</strong>
 		comandos2
-	<b>}
+	<strong>}
 	else {
-		if (</b>condição3<b>) {</b>
+		if (</strong>condição3<strong>) {</strong>
 			comandos3
-		<b>}
-		else {</b>
+		<strong>}
+		else {</strong>
 			comandos4
-		<b>}
+		<strong>}
 	}
-}</b>
+}</strong>
 
 
 
-<b>if (</b>condição1<b>) {</b>
+<strong>if (</strong>condição1<strong>) {</strong>
 	comandos1
-<b>}
-else if (</b>condição2<b>) {</b>
+<strong>}
+else if (</strong>condição2<strong>) {</strong>
 	comandos2
-<b>}
-else if (</b>condição3<b>) {</b>
+<strong>}
+else if (</strong>condição3<strong>) {</strong>
 	comandos3
-<b>}
-else {</b>
+<strong>}
+else {</strong>
 	comandos4
-<b>}</b>
+<strong>}</strong>
 
 
 
-<b>switch(</b>variável<b>) {
-	case</b> valor1<b>:</b>
+<strong>switch(</strong>variável<strong>) {
+	case</strong> valor1<strong>:</strong>
 		comandos1
-		<b>break;</b>
+		<strong>break;</strong>
 
-	<b>case</b> valor2<b>:</b>
+	<strong>case</strong> valor2<strong>:</strong>
 		comandos2
-		<b>break;</b>
+		<strong>break;</strong>
 
-	<b>case</b> valorN<b>:</b>
+	<strong>case</strong> valorN<strong>:</strong>
 		comandosN
-		<b>break;</b>
+		<strong>break;</strong>
 
-	<b>default:</b>
+	<strong>default:</strong>
 		comandosDefault
-		<b>break;
-}</b></pre>
+		<strong>break;
+}</strong></pre>
 
-<h2>Entrada e Saída:</h2>
+    <h2>Estruturas de Repetição:</h2>
+    <pre><strong>for(</strong>inicialização<strong>;</strong> condição<strong>;</strong> incremento<strong>) {</strong>
+	<em>comandos</em>
+<strong>}
+</strong><strong>
 
-<pre><b>printf(</b> <code>"formato"</code><b>,</b> dado1<b>,</b> dado2<b>,</b> ... <b>);
-scanf(</b> <code>"formato"</code><b>, &</b> variável <b>);</b></pre>
+while(</strong><em>condição</em><strong>) {
+</strong><strong>	</strong><em>comandos</em><strong>
+}</strong></pre>
+    <h2>Entrada e Saída:</h2>
 
-<h2>Formatos para Entrada e Saída:</h2>
-<pre><code>%d %f %c</code></pre>
+    <pre><strong>printf(</strong> <code>"formato"</code><strong>,</strong> dado1<strong>,</strong> dado2<strong>,</strong> ... <strong>);
+scanf(</strong> <code>"formato"</code><strong>, &amp;</strong> variável <strong>);
+setbuf( </strong>stdin<strong>, <span>NULL </span></strong><strong>);</strong></pre>
 
-<h2>Tipos de Dados:</h2>
-<pre><b>int float char</b></pre>
+    <h2>Formatos para Entrada e Saída:</h2>
+    <pre><code>%d %f %c %s %[^\n]</code></pre>
 
-<h2>Declaração de Variáveis:</h2>
-<pre>tipo nome <b>;</b>
-tipo nome <b>=</b> valorInicial <b>;</b></pre>
+    <h2>Tipos de Dados:</h2>
+    <pre><strong>int float char</strong></pre>
 
-<h2>Atribuição:</h2>
-<pre>variável <b>=</b> valor <b>;</b></pre>
+    <h2>Declaração de Variáveis:</h2>
+    <pre>tipo nome <strong>;</strong>
+tipo nome <strong>=</strong> valorInicial <strong>;</strong></pre>
 
-<h2>Operadores:</h2>
-<pre><b>+  -  *  /  %
+    <h2>Atribuição:</h2>
+    <pre>variável <strong>=</strong> valor <strong>;</strong></pre>
 
-==  !=  >  >=  <  <=
+    <h2>Operadores:</h2>
+    <pre><strong>+  -  *  /  %
 
-!  &&  ||</b></pre>
+==  !=  &gt;  &gt;=  &lt;  &lt;=
 
-<h2>Funções:</h2>
-<pre><b>pow(</b>base<b>,</b> expoente<b>)   sqrt(</b>radic<b>)
-abs(</b>inteiro<b>)   fabs(</b>real<b>)</b></pre>
+!  &amp;&amp;  ||
+
+++   --</strong></pre>
+
+    <h2>Declaração de Vetores e Matrizes:</h2>
+    <pre><em><strong>tipo</strong></em> <em>nome</em> <strong>[</strong><em>tamanho1</em><strong>] [</strong>tamanho2<strong>];</strong>
+<strong><em>tipo</em></strong> <em>nome</em> <strong>[</strong><em>tamanho1</em><strong>] [</strong><em>tamanho2</em><strong>] =</strong><strong> {</strong> <em>valores</em> <strong>} ;</strong></pre>
+    <h2>Acesso à Vetores e Matrizes:</h2>
+    <pre><em>nome </em><strong>[</strong> <em>índice1 </em><strong>] [</strong> <em>índice2 </em><strong>]</strong></pre>
+    <h2>String:</h2>
+    <pre><code>'\0'</code></pre>
+    <h2>Funções da Biblioteca math.h:</h2>
+    <pre><strong>pow(</strong><em>base</em><strong>,</strong> <em>expoente</em><strong>)   sqrt(</strong><em>radic</em><strong>)
+abs(</strong><em>inteiro</em><strong>)   fabs(</strong><em>real</em><strong>)</strong></pre>
+    <h2>Funções da Biblioteca string.h:</h2>
+    <pre><strong>strlen(</strong><em>string</em><strong>)   strcpy(</strong><em>destino</em><strong>, </strong><em>origem</em><span><strong>)
+strcat(</strong><em style="">destino</em><strong>, </strong><em style="">origem</em><span><strong>)    strcmp(</strong><em style="">s1</em><strong>, </strong></span><em>s2</em><strong>)</strong></span></pre>
 </div>
 </body>
 </html>
