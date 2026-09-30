@@ -1,3 +1,4 @@
+```mermaid
 classDiagram
     class Sensor {
         <<interface>>
@@ -68,3 +69,4 @@ classDiagram
     Display <|-- DisplayLCD : Implementa
     ConversorSensorDisplay o-- Sensor : Agrega
     ConversorSensorDisplay o-- Display : Agrega
+```
