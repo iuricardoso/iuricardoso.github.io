@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sintaxe Linguagem C++ e Programação Orientada a Objetos</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+            background-color: #ffffff;
+            color: #000000;
+        }
+        h1 {
+            color: #000000;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 1.2em;
+            margin-top: 25px;
+            margin-bottom: 8px;
+            color: #000000;
+        }
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.95em;
+            margin: 4px 0 8px 0;
+            color: #333333;
+            line-height: 1.3;
+        }
+        pre {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1em;
+            margin: 6px 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            line-height: 1.4;
+        }
+        strong {
+            font-weight: bold;
+            color: #0000FF; /* Azul */
+        }
+        em {
+            font-style: italic;
+            color: #333333;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+            color: #008000;
+        }
+        span {
+            color: #000000;
+        }
+
+        /* Layout de duas colunas */
+        .conteudo-duas-colunas {
+            display: flex;
+            gap: 40px;
+        }
+        .coluna {
+            flex: 1;
+            min-width: 0;
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .conteudo-duas-colunas {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Sintaxe Linguagem C++ e Programação Orientada a Objetos</h1>
+
+<div class="conteudo-duas-colunas">
+    <!-- COLUNA 1: SINTAXE BÁSICA E ESTRUTURADA DE C++ -->
+    <div class="coluna">
+        <h2>Estrutura Básica:</h2>
+        <pre><strong>#include &lt;iostream&gt;</strong>
+<strong>using namespace std;</strong>
+
+<strong>int main() {</strong>
+	<em>// Comandos do programa principal</em>
+	<strong>return 0;</strong>
+<strong>}</strong></pre>
+
+        <h2>Entrada e Saída Padrão (iostream):</h2>
+        <pre><strong>cout &lt;&lt;</strong> <em>dado</em> <strong>&lt;&lt; endl;</strong></pre>
+        <p><em>dado</em>: valor ou variável a ser exibida no console (endl adiciona quebra de linha).</p>
+
+        <pre><strong>cin &gt;&gt;</strong> <em>variável</em> <strong>;</strong></pre>
+        <p><em>variável</em>: variável que receberá o dado digitado via teclado.</p>
+
+        <pre><strong>getline(cin,</strong> <em>stringVar</em><strong>);</strong></pre>
+        <p><em>stringVar</em>: variável do tipo string para ler uma linha completa com espaços.</p>
+
+        <h2>Limpeza do Buffer de Entrada:</h2>
+        <pre><strong>cin.ignore();</strong></pre>
+        <p>Descarta um único caractere do buffer (útil para remover o '\n' restante de uma leitura anterior).</p>
+
+        <pre><strong>cin.ignore(10000, '\n');</strong></pre>
+        <p>Limpa todos os caracteres pendentes no buffer até encontrar a quebra de linha ('\n').</p>
+
+        <h2>Tipos de Dados:</h2>
+        <pre><strong>int float double char bool string void</strong></pre>
+
+        <h2>Declaração de Variáveis:</h2>
+        <pre><em>tipo</em> <em>nome</em> <strong>;</strong>
+<em>tipo</em> <em>nome</em> <strong>=</strong> <em>valorInicial</em> <strong>;</strong></pre>
+        <p><em>tipo</em>: tipo de dado;</p>
+        <p><em>nome</em>: nome da variável.</p>
+
+        <h2>Atribuição:</h2>
+        <pre><em>variável</em> <strong>=</strong> <em>expressão</em> <strong>;</strong></pre>
+
+        <h2>Definição de Constantes:</h2>
+        <pre><strong>const int</strong> <em>nome</em> <strong>=</strong> <em>valor</em> <strong>;</strong></pre>
+        <p><em>nome</em>: nome da constante;</p>
+        <p><em>valor</em>: valor da constante.</p>
+
+        <pre><strong>#define</strong> <em>NOME VALOR</em></pre>
+        <p><em>NOME</em>: nome da constante;</p>
+        <p><em>VALOR</em>: valor da constante.</p>
+
+        <h2>Operadores:</h2>
+        <pre><strong>+  -  *  /  %
+
+==  !=  &gt;  &gt;=  &lt;  &lt;=
+
+!  &amp;&amp;  ||
+
+++   --</strong></pre>
+
+        <h2>Estruturas de Decisão:</h2>
+        <pre><strong>if (</strong><em>condição1</em><strong>) {</strong>
+	<em>comandos1</em>
+<strong>}
+else if (</strong><em>condição2</em><strong>) {</strong>
+	<em>comandos2</em>
+<strong>}
+else {</strong>
+	<em>comandos padrão</em>
+<strong>}</strong>
+
+
+
+<strong>switch(</strong><em>variável</em><strong>) {
+	case</strong> <em>constante1</em><strong>:</strong>
+		<em>comandos1</em>
+		<strong>break;</strong>
+
+	<strong>case</strong> <em>constante2</em><strong>:</strong>
+		<em>comandos2</em>
+		<strong>break;</strong>
+
+	<strong>default:</strong>
+		<em>comandos padrão</em>
+		<strong>break;
+}</strong></pre>
+        <p><em>variável</em>: a variável a ser comparada com as constantes;</p>
+        <p><em>constante1, constante2, …</em>: as constantes a serem comparadas com a variável.</p>
+
+        <h2>Estruturas de Repetição:</h2>
+        <pre><strong>for(</strong><em>var</em> <strong>=</strong> <em>ini</em><strong>;</strong> <em>var</em> <strong>&lt;=</strong> <em>fim</em><strong>;</strong> <em>var</em><strong>++) {</strong>
+	<em>trecho de repetição</em>
+<strong>}</strong></pre>
+        <p><em>var</em>: variável de contagem;</p>
+        <p><em>ini</em>: valor inicial para a contagem;</p>
+        <p><em>fim</em>: valor final para a contagem.</p>
+
+        <pre><strong>while(</strong><em>condição</em><strong>) {</strong>
+	<em>trecho de repetição</em>
+<strong>}</strong>
+
+
+
+<strong>do {</strong>
+	<em>trecho de repetição</em>
+<strong>} while(</strong><em>condição</em><strong>);</strong></pre>
+
+        <h2>Declaração de Vetores de Uma Dimensão:</h2>
+        <pre><em><strong>tipo</strong></em> <em>nome</em> <strong>[</strong><em>tamanho</em><strong>];</strong>
+<em><strong>tipo</strong></em> <em>nome</em> <strong>[</strong><em>tamanho</em><strong>] = {</strong> <em>valor0</em><strong>,</strong> <em>valor1</em><strong>,</strong> ... <strong>} ;</strong></pre>
+
+        <h2>Acesso e Atribuição em Vetores:</h2>
+        <pre><em>nome</em> <strong>[</strong> <em>índice</em> <strong>] =</strong> <em>expressão</em> <strong>;</strong>
+<em>variável</em> <strong>=</strong> <em>nome</em> <strong>[</strong> <em>índice</em> <strong>] ;</strong></pre>
+        <p><em>índice</em>: posição do elemento no vetor (varia de 0 até tamanho - 1).</p>
+    </div>
+
+    <!-- COLUNA 2: FUNÇÕES E ORIENTAÇÃO A OBJETOS UNIFICADA -->
+    <div class="coluna">
+        <h2>Definição de Função com Retorno de Valor:</h2>
+        <pre><strong><em>tipo</em></strong> <em>nomeDaFuncao</em><strong>(</strong><em>argumento1</em><strong>,</strong> <em>argumento2</em><strong>,</strong> ...<strong>) {</strong>
+	<em>comandos</em>
+	<strong>return</strong> <em>valor</em><strong>;</strong>
+<strong>}</strong></pre>
+
+        <h2>Definição de Função sem Retorno de Valor:</h2>
+        <pre><strong>void</strong> <em>nomeDaFuncao</em><strong>(</strong><em>argumento1</em><strong>,</strong> <em>argumento2</em><strong>,</strong> ...<strong>) {</strong>
+	<em>comandos</em>
+<strong>}</strong></pre>
+
+        <h2>Protótipo de Função:</h2>
+        <pre><strong><em>tipo</em></strong> <em>nomeDaFuncao</em><strong>(</strong><em>argumento1</em><strong>,</strong> <em>argumento2</em><strong>,</strong> ...<strong>);</strong>
+<strong>void</strong> <em>nomeDaFuncao</em><strong>(</strong><em>argumento1</em><strong>,</strong> <em>argumento2</em><strong>,</strong> ...<strong>);</strong></pre>
+
+        <h2>Estrutura Completa de Definição de Classe:</h2>
+        <pre><strong>class</strong> <em>NomeDaClasse</em> <strong>{</strong>
+<strong>private:</strong>
+	<em>tipo</em> <em>atributoPrivado</em><strong>;</strong>
+
+<strong>protected:</strong>
+	<em>tipo</em> <em>atributoProtegido</em><strong>;</strong>
+
+<strong>public:</strong>
+	<em>// Construtor Padrão</em>
+	<em>NomeDaClasse</em><strong>() {</strong>
+		<em>atributoPrivado</em> <strong>=</strong> <em>0</em><strong>;</strong>
+	<strong>}
+
+	</strong><em>// Construtor com Parâmetros</em>
+	<em>NomeDaClasse</em><strong>(</strong><em>tipo</em> <em>valor</em><strong>) {</strong>
+		<em>atributoPrivado</em> <strong>=</strong> <em>valor</em><strong>;</strong>
+	<strong>}
+
+	</strong><em>// Destrutor</em>
+	<strong>~</strong><em>NomeDaClasse</em><strong>() {</strong>
+		<em>// Liberação de recursos, se necessário</em>
+	<strong>}
+
+	</strong><em>// Método sem retorno (void)</em>
+	<strong>void</strong> <em>metodo1</em><strong>(</strong><em>tipo</em> <em>parametro</em><strong>) {</strong>
+		<em>// Comandos do método sem retorno</em>
+	<strong>}
+
+	</strong><em>// Método com retorno de valor</em>
+	<em>tipo</em> <em>metodo2</em><strong>() {</strong>
+		<em>// Comandos do método com retorno</em>
+		<strong>return</strong> <em>atributoPrivado</em><strong>;</strong>
+	<strong>}
+
+	</strong><em>// Protótipo de Método (para implementação externa)</em>
+	<strong>void</strong> <em>metodoExterno</em><strong>();</strong>
+<strong>};</strong></pre>
+        <p><strong>private:</strong> visibilidade privada (acesso restrito aos membros da própria classe);</p>
+        <p><strong>protected:</strong> visibilidade protegida (acesso permitido à própria classe e subclasses);</p>
+        <p><strong>public:</strong> visibilidade pública (acesso livre externamente);</p>
+        <p><em>NomeDaClasse() / NomeDaClasse(valor)</em>: construtores (executados ao instanciar o objeto);</p>
+        <p><em>~NomeDaClasse()</em>: destrutor (executado ao destruir o objeto);</p>
+        <p><em>metodo1 / metodo2</em>: métodos da classe (um do tipo void e outro com retorno de valor).</p>
+
+        <h2>Implementação de Método Fora da Classe:</h2>
+        <pre><strong>void</strong> <em>NomeDaClasse</em><strong>::</strong><em>metodoExterno</em><strong>() {</strong>
+	<em>// Código do método definido fora do corpo da classe</em>
+<strong>}</strong></pre>
+        <p><strong>::</strong> (operador de resolução de escopo): vincula a definição externa da função à classe correspondente.</p>
+
+        <h2>Instanciação de Objetos e Acesso a Membros:</h2>
+        <pre><em>// Instanciação usando Construtor Padrão</em>
+<em>NomeDaClasse</em> <em>objeto1</em><strong>;</strong>
+
+<em>// Instanciação usando Construtor com Parâmetros</em>
+<em>NomeDaClasse</em> <em>objeto2</em><strong>(</strong><em>valorInicial</em><strong>);</strong>
+
+<em>// Chamada de Métodos Públicos</em>
+<em>objeto1</em><strong>.</strong><em>metodo1</em><strong>(</strong><em>arg</em><strong>);</strong>
+<em>variável</em> <strong>=</strong> <em>objeto1</em><strong>.</strong><em>metodo2</em><strong>();</strong>
+<em>objeto1</em><strong>.</strong><em>metodoExterno</em><strong>();</strong></pre>
+        <p><em>objeto1 / objeto2</em>: instâncias criadas a partir da classe;</p>
+        <p><em>. (ponto)</em>: operador para acessar os métodos e atributos públicos de um objeto.</p>
+    </div>
+</div>
+
+</body>
+</html>
